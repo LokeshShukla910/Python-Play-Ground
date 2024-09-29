@@ -1,15 +1,17 @@
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-Analyzer = SentimentIntensityAnalyzer()
-def analyzer(text):
+Analyser = SentimentIntensityAnalyzer()
+def analyze(text):
     try:
-        sentiment = Analyzer.polarity_scores(text)
-        if sentiment("compound") >= 0.05:
-            print("Positive")
-        elif sentiment("compound") <= -0.05:
-            print("Negetive")
+        sentiment = Analyser.polarity_scores(text)
+
+        if sentiment["compound"] >= 0.05:
+            print("\nPositive")
+        elif sentiment["compound"] <= -0.05:
+            print("\nNegative")
         else:
-            print("Neutral")
+            print("\nNeutral")
     except Exception as e:
         print(e)
-Text = input("Please enter a Text")
-analyzer(Text)
+
+Text = input("Please enter a Text\n")
+analyze(Text)
